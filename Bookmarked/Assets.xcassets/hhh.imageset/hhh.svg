@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="391px" height="275px" viewBox="0 0 391 275" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <linearGradient x1="79.5706361%" y1="42.1660232%" x2="87.8577305%" y2="69.8101119%" id="linearGradient-1">
+            <stop stop-color="#3C4A50" offset="0%"></stop>
+            <stop stop-color="#B1EEE9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="86.0517873%" y1="50%" x2="95.9405012%" y2="62.0815116%" id="linearGradient-2">
+            <stop stop-color="#596C73" offset="0%"></stop>
+            <stop stop-color="#B1BDB9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="42.4485091%" y1="45.6403798%" x2="60.9940506%" y2="64.0592776%" id="linearGradient-3">
+            <stop stop-color="#20363E" offset="0%"></stop>
+            <stop stop-color="#596C73" offset="99.371722%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Hi-fi" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <path d="M0,107 L391,107 L391,255.514819 C361.10249,268.50494 314.724732,275 251.866726,275 C201.628844,275 130.608002,254.669945 83,247.850243 C37.673018,241.35729 10.0063514,239.146181 0,241.216916 L0,107 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+            <path d="M0,42 L391,42 L391,190.514819 C361.10249,203.50494 314.724732,210 251.866726,210 C201.628844,210 130.608002,189.669945 83,182.850243 C37.673018,176.35729 10.0063514,174.146181 0,176.216916 L0,42 Z" id="Rectangle" fill="url(#linearGradient-2)" transform="translate(195.500000, 126.000000) scale(-1, 1) translate(-195.500000, -126.000000) "></path>
+            <path d="M0,0 L391,0 L391,148.514819 C361.10249,161.50494 314.724732,168 251.866726,168 C201.628844,168 130.608002,147.669945 83,140.850243 C37.673018,134.35729 10.0063514,132.146181 0,134.216916 L0,0 Z" id="Rectangle" fill="url(#linearGradient-3)"></path>
+        </g>
+    </g>
+</svg>
