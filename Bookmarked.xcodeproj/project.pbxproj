@@ -20,7 +20,7 @@
 		1EC5F2CA294A36EF00CC7AB0 /* OnBording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5F2C9294A36EF00CC7AB0 /* OnBording.swift */; };
 		E9AEEF67294A688600D0C369 /* CKCrudv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AEEF66294A688600D0C369 /* CKCrudv.swift */; };
 		E9AEEF6B294CA02F00D0C369 /* PushNot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AEEF6A294CA02F00D0C369 /* PushNot.swift */; };
-		E9BEFA2F29508E5200FDF49D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9BEFA3129508E5200FDF49D /* Localizable.strings */; };
+		E9BEFA342951D26400FDF49D /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEFA332951D26400FDF49D /* PlaceDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,7 @@
 		1EC5F2C9294A36EF00CC7AB0 /* OnBording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBording.swift; sourceTree = "<group>"; };
 		E9AEEF66294A688600D0C369 /* CKCrudv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKCrudv.swift; sourceTree = "<group>"; };
 		E9AEEF6A294CA02F00D0C369 /* PushNot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNot.swift; sourceTree = "<group>"; };
-		E9BEFA3029508E5200FDF49D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E9BEFA3229508E5300FDF49D /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E9BEFA332951D26400FDF49D /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		E9FF4888294A57A3009C556A /* Bookmarked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bookmarked.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,12 +148,12 @@
 				1E8E224B2940C17400C2330A /* StartApp.swift */,
 				1EC5F2C9294A36EF00CC7AB0 /* OnBording.swift */,
 				1E3B493C2949F0830060C8E6 /* WijhaPage.swift */,
-				E9BEFA3129508E5200FDF49D /* Localizable.strings */,
 				1E8E224D2940C17400C2330A /* BookmarkView.swift */,
 				1E03A10929435BD7008B227A /* category.swift */,
 				E9AEEF6A294CA02F00D0C369 /* PushNot.swift */,
 				E9AEEF66294A688600D0C369 /* CKCrudv.swift */,
 				1EC5F2C3294A363400CC7AB0 /* Intro.swift */,
+				E9BEFA332951D26400FDF49D /* PlaceDetails.swift */,
 			);
 			path = "Wijha App";
 			sourceTree = "<group>";
@@ -265,7 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E8E22532940C17500C2330A /* Preview Assets.xcassets in Resources */,
-				E9BEFA2F29508E5200FDF49D /* Localizable.strings in Resources */,
 				1E8E22502940C17500C2330A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +295,7 @@
 				E9AEEF67294A688600D0C369 /* CKCrudv.swift in Sources */,
 				1E03A10A29435BD7008B227A /* category.swift in Sources */,
 				1E8E224C2940C17400C2330A /* StartApp.swift in Sources */,
+				E9BEFA342951D26400FDF49D /* PlaceDetails.swift in Sources */,
 				1EC5F2CA294A36EF00CC7AB0 /* OnBording.swift in Sources */,
 				1E3B493D2949F0830060C8E6 /* WijhaPage.swift in Sources */,
 			);
@@ -333,18 +332,6 @@
 			targetProxy = 1E8E22632940C17500C2330A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E9BEFA3129508E5200FDF49D /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E9BEFA3029508E5200FDF49D /* en */,
-				E9BEFA3229508E5300FDF49D /* ar */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1E8E226A2940C17500C2330A /* Debug */ = {

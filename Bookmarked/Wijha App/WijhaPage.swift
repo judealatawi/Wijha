@@ -10,9 +10,11 @@ struct WijhaPage: View {
     @Environment(\.colorScheme) var colorScheme
     @State var isSelected = false
     @StateObject private var vm = CKViewModel()
+    // @StateObject private var pd = detailsplace()
     
     @State private var  catt: String = "trending"
     @State private var  bkk: Int64 = 0
+    //let placedetails : String = []
     
     //let trending = [phhotos(name: "", record: CKRecord , imageURL: URL? , rate: "", cat: "", bk: 0)]
     
@@ -28,16 +30,6 @@ struct WijhaPage: View {
     
     var body: some View {
         
-        
-        VStack{
-            Button {
-                print(vm.place)
-
-            } label: {
-                
-            }
-
-        }
         
         NavigationView{
             NavigationStack{
@@ -116,8 +108,8 @@ struct WijhaPage: View {
                                                 
                                                 if(sub.cat == catt){
                                                     VStack(alignment: .leading){
-                                                        
-                                                        
+
+
                                                         if let url = sub.imageURL, let data = try? Data (contentsOf: url),
                                                            let image = UIImage(data: data) {
                                                             Image (uiImage: image)
@@ -128,32 +120,25 @@ struct WijhaPage: View {
                                                                 .frame(width: 96, height: 153)
                                                                 .background()
                                                                 .cornerRadius(8)
-                                                            
+
                                                         }
-//
-//                                                        Text(LocalizedStringKey( sub.name))
-//                                                            .font(.custom("", fixedSize: 12))
-//                                                            .fontWeight(.medium)
-//                                                            .padding(.top,-50)
-                                                        
-                                                        
                                                         Text(LocalizedStringKey(sub.name))
                                                             .font(.custom("", fixedSize: 12))
                                                             .fontWeight(.medium)
                                                             .padding(.top,-50)
-                                                        
+
                                                         Text(sub.rate)
                                                             .font(.custom("", fixedSize: 12))
                                                             .padding(.top,-40)
                                                             .padding(.leading,5)
                                                             .fontWeight(.medium)
-                                                        
+
                                                         Image(systemName:"star.fill")
                                                             .padding(.top,-50).padding(.leading,25)
                                                             .foregroundColor(.yellow)
-                                                        
-                                                        
-                                                        
+
+
+
                                                     }
                                                 }
                                             }
@@ -171,43 +156,27 @@ struct WijhaPage: View {
                             Text("Latest")
                                 .font(.custom("", fixedSize: 18))
                                 .fontWeight(.medium)
-                            
                                 .padding(.horizontal,-175)
                             
                             ZStack{
                                 ScrollView{
                                     
+                                    ForEach(self.vm.place,id:\.self) { p in
                                     
-                                    ForEach(vm.place,id:\.self) { p in
-                                        
-                                        ZStack{
+                                    VStack(alignment: .leading){
+                                        NavigationLink(destination: PlaceDeatil(p: p)){
+                                            
                                             if let url = p.imageURL, let data = try? Data (contentsOf: url),
                                                let image = UIImage(data: data) {
                                                 Image (uiImage: image)
-                                                    .resizable()
-                                                .frame(width: 358.51, height: 290)}
-                                            
-                                            ZStack(alignment: .leading){
-                                                Image("rectangletTag")
-                                                VStack{
-                                                    Text(LocalizedStringKey( p.name))
-                                                        .foregroundColor(.white).bold().padding(.leading)
-                                                    
-                                                    HStack{
-                                                        Text(LocalizedStringKey(  p.rate))
-                                                            .foregroundColor(.white)
-                                                        Image(systemName:"star.fill")
-                                                        
-                                                            .foregroundColor(.yellow)
-                                                        
-                                                    }.padding(.leading)
-                                                }
-                                                
-                                            }.position(x:63,y:260)
-                                            
-                                            
-                                            
-                                        }.padding(5)
+                                                    .resizable().cornerRadius(10).frame(width: 358.51, height: 290).padding(.top,-40)
+                                            }
+                                        }
+                                        Image("rectangletTag").padding(.top,-66)
+                                        
+                                        Text(p.name).padding(.top,-66).padding(.leading,5).foregroundColor(.white).bold()
+                                        Text(p.rate).padding(.top,-60).padding(.leading,5).foregroundColor(.white)
+                                        Image(systemName:"star.fill").padding(.top,-73).padding(.leading,35).foregroundColor(.yellow)
                                         
                                         
                                         
@@ -217,9 +186,6 @@ struct WijhaPage: View {
                                                 vm.updatebktrue(fruit: p)
                                                 
                                             }else{vm.updatebkfalse(fruit: p)}
-                                            
-                                            
-                                            
                                         } label: {
                                             if(p.bk == bkk){
                                                 Image(systemName:"bookmark")
@@ -228,11 +194,16 @@ struct WijhaPage: View {
                                                 
                                             }
                                             
-                                        }.padding(.top,-290).padding(.leading,310).font(.system(size: 30)).foregroundColor(Color("secondaryColor"))
+                                        }.font(.system(size: 30)).foregroundColor(Color("secondaryColor")).padding(.top,-330).padding(.leading,320)
                                         
-                                    }///////////////////////////////end foreach
-                                }.padding()
-                                //.padding(.top,40)
+                                        
+                                     
+
+                                    }
+                                    
+                                }
+                                }.padding(.top,40)
+                                
                                 
                                 
                             }//end of zstack
@@ -263,65 +234,12 @@ struct WijhaPage: View {
             
         }.navigationBarBackButtonHidden()
     }
-    func b (){
-        ForEach(vm.place,id:\.self) { p in
-            ZStack{
-                if let url = p.imageURL, let data = try? Data (contentsOf: url),
-                   let image = UIImage(data: data) {
-                    Image (uiImage: image)
-                        .resizable()
-                    .frame(width: 358.51, height: 290)}
-                
-                ZStack(alignment: .leading){
-                    Image("rectangletTag")
-                    VStack{
-                        Text(p.name)
-                            .foregroundColor(.white).bold().padding(.leading)
-                        
-                        HStack{
-                            Text(p.rate)
-                                .foregroundColor(.white)
-                            Image(systemName:"star.fill")
-                            
-                                .foregroundColor(.yellow)
-                            
-                        }.padding(.leading)
-                    }
-                    
-                }.position(x:63,y:260)
-                
-                
-                
-            }.padding(5)
-            
-            Button {
-                isSelected.toggle()
-                
-                if(isSelected == true){
-                    vm.updatebktrue(fruit: p)
-                    
-                }else{vm.updatebkfalse(fruit: p)
-                    
-                }
-            } label: {
-                if(p.bk == bkk){
-                    Image(systemName:"bookmark")
-                }else{
-                    Image(systemName:"bookmark.fill")
-                    
-                }
-                
-            }.padding(.top,-290).padding(.leading,310).font(.system(size: 30)).foregroundColor(Color("secondaryColor"))
-        }
-        
-    }
-    
 }
 
 
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         WijhaPage()
-            .environment(\.locale, Locale(identifier: "en"))
+        // .environment(\.locale, Locale(identifier: "en"))
     }
 }

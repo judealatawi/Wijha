@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnBording: View {
     @StateObject private var vm = PushNotifciationViewModel()
+    
     @State var intros: [Intro] = [
         Intro( title: "Welcome", subTitle: "intro1", description: "Let's take you to your  next favorite place ", pic: "Onboard1", color: Color("primaryColor 1")),
                Intro(title: "Search", subTitle: "intro2", description: "With our variety of categories you can easily find what your looking for", pic: "Onboard2", color: Color("secondaryColor")),
@@ -58,7 +59,7 @@ struct OnBording: View {
         //arrow with drag gesture..
 //        //.overlay(
 //            Button{
-//                
+//
 //            }label: {
 //                Image(systemName: "chevron.left")
 //                    .font(.largeTitle)
@@ -67,21 +68,21 @@ struct OnBording: View {
 //                    .contentShape(Rectangle())
 //                    .gesture(
 //                    //drag gesture
-//                        
+//
 //                        DragGesture()
 //                            .updating($isDragging, body: { value, out, _ in
 //                                out = true
-//                                
+//
 //                            })
 //                            .onChanged({ value in
-//                                
+//
 //                                //updating offset
 //                                withAnimation(.interactiveSpring(response: 0.7, dampingFraction: 0.6, blendDuration: 0.6)){
-//                                    
+//
 //                                    intros[fakeIndex].offset = value.translation
-//                                    
+//
 //                                }
-//                                
+//
 //                            })
 //                            .onEnded({value in
 //                                withAnimation(.spring()){
@@ -90,45 +91,45 @@ struct OnBording: View {
 //                                        intros[fakeIndex].offset.width = -getRect().height * 1.5
 //                                        //updating index
 //                                        fakeIndex += 1
-//                                        
+//
 //                                        if currentIndex == intros.count - 3{
 //                                            currentIndex = 0
 //                                        }
 //                                        else{
 //                                            currentIndex += 1
 //                                        }
-//                                        
+//
 //                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4){
 //                                            if fakeIndex == (intros.count - 2){
 //                                                for index in 0..<intros.count - 2{
 //                                                    intros[index].offset = .zero
-//                                                    
+//
 //                                                }
-//                                                
+//
 //                                                fakeIndex = 0
-//                                                
+//
 //                                            }
 //                                        }
-//                                        
+//
 //                                    }
 //                                    else{
 //                                        intros[fakeIndex].offset = .zero
-//                                        
+//
 //                                    }
-//                                            
-//                                    
-//                                    
+//
+//
+//
 //                                }
 //                            })
 //                    )
 //            }
-//                  
-//            
+//
+//
 //            .offset(y: 53 )
 //            .opacity(isDragging ? 0: 1)
 //            .animation(.linear, value: isDragging)
 //            //,alignment: .topTrailing
-//        
+//
         
         .onAppear{
             vm.PermissionsReq()
