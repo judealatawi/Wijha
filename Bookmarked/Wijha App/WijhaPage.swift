@@ -10,14 +10,8 @@ struct WijhaPage: View {
     @Environment(\.colorScheme) var colorScheme
     @State var isSelected = false
     @StateObject private var vm = CKViewModel()
-    // @StateObject private var pd = detailsplace()
-    
-    @State private var  catt: String = "trending"
     @State private var  bkk: Int64 = 0
-    //let placedetails : String = []
-    
-    //let trending = [phhotos(name: "", record: CKRecord , imageURL: URL? , rate: "", cat: "", bk: 0)]
-    
+    @State private var  trend: Int64 = 1
     
     
     init() {
@@ -29,8 +23,6 @@ struct WijhaPage: View {
     
     
     var body: some View {
-        
-        
         NavigationView{
             NavigationStack{
                 
@@ -95,7 +87,6 @@ struct WijhaPage: View {
                                 .cornerRadius(7.5)
                                 .font(.custom("", fixedSize: 16))
                                 .fontWeight(.medium)
-                            //.fontDesign(.rounded)
                                 .padding(.leading,-185)
                             
                             
@@ -106,39 +97,41 @@ struct WijhaPage: View {
                                             
                                             ForEach(vm.place,id:\.self) { sub in
                                                 
-                                                if(sub.cat == catt){
+                                                if(sub.trend == trend){
                                                     VStack(alignment: .leading){
-
-
-                                                        if let url = sub.imageURL, let data = try? Data (contentsOf: url),
-                                                           let image = UIImage(data: data) {
-                                                            Image (uiImage: image)
-                                                                .resizable()
-                                                                .cornerRadius(10)
-                                                                .frame(width: 80, height: 100)
-                                                                .padding(.top,-40)
-                                                                .frame(width: 96, height: 153)
-                                                                .background()
-                                                                .cornerRadius(8)
-
+                                                        
+                                                        
+                                                        NavigationLink(destination: PlaceDeatil(p: sub)){
+                                                            if let url = sub.imageURL, let data = try? Data (contentsOf: url),
+                                                               let image = UIImage(data: data) {
+                                                                Image (uiImage: image)
+                                                                    .resizable()
+                                                                    .cornerRadius(10)
+                                                                    .frame(width: 80, height: 100)
+                                                                    .padding(.top,-40)
+                                                                    .frame(width: 96, height: 153)
+                                                                    .background()
+                                                                    .cornerRadius(8)
+                                                                
+                                                            }
                                                         }
                                                         Text(LocalizedStringKey(sub.name))
                                                             .font(.custom("", fixedSize: 12))
                                                             .fontWeight(.medium)
                                                             .padding(.top,-50)
-
+                                                        
                                                         Text(sub.rate)
                                                             .font(.custom("", fixedSize: 12))
                                                             .padding(.top,-40)
                                                             .padding(.leading,5)
                                                             .fontWeight(.medium)
-
+                                                        
                                                         Image(systemName:"star.fill")
                                                             .padding(.top,-50).padding(.leading,25)
                                                             .foregroundColor(.yellow)
-
-
-
+                                                        
+                                                        
+                                                        
                                                     }
                                                 }
                                             }
@@ -146,12 +139,9 @@ struct WijhaPage: View {
                                     }
                                 }
                                 
-                            }//end of zstack
+                            }
                             
                             Divider()
-                            
-                            
-                            
                             
                             Text("Latest")
                                 .font(.custom("", fixedSize: 18))
@@ -162,51 +152,49 @@ struct WijhaPage: View {
                                 ScrollView{
                                     
                                     ForEach(self.vm.place,id:\.self) { p in
-                                    
-                                    VStack(alignment: .leading){
-                                        NavigationLink(destination: PlaceDeatil(p: p)){
-                                            
-                                            if let url = p.imageURL, let data = try? Data (contentsOf: url),
-                                               let image = UIImage(data: data) {
-                                                Image (uiImage: image)
-                                                    .resizable().cornerRadius(10).frame(width: 358.51, height: 290).padding(.top,-40)
+                                        
+                                        VStack(alignment: .leading){
+                                            NavigationLink(destination: PlaceDeatil(p: p)){
+                                                
+                                                if let url = p.imageURL, let data = try? Data (contentsOf: url),
+                                                   let image = UIImage(data: data) {
+                                                    Image (uiImage: image)
+                                                        .resizable().cornerRadius(10).frame(width: 358.51, height: 290).padding(.top,-40)
+                                                }
                                             }
+                                            Image("rectangletTag").padding(.top,-66)
+                                            
+                                            Text(p.name).padding(.top,-66).padding(.leading,5).foregroundColor(.white).bold()
+                                            Text(p.rate).padding(.top,-60).padding(.leading,5).foregroundColor(.white)
+                                            Image(systemName:"star.fill").padding(.top,-73).padding(.leading,35).foregroundColor(.yellow)
+                                            
+                                            
+                                            Button {
+                                                isSelected.toggle()
+                                                if(isSelected == true){
+                                                    vm.updatebktrue(placef: p)
+                                                    
+                                                }else{vm.updatebkfalse(placef: p)}
+                                            } label: {
+                                                if(p.bk == bkk){
+                                                    Image(systemName:"bookmark")
+                                                }else{
+                                                    Image(systemName:"bookmark.fill")
+                                                    
+                                                }
+                                                
+                                            }.font(.system(size: 30)).foregroundColor(Color("secondaryColor")).padding(.top,-330).padding(.leading,320)
+                                            
+                                            
+                                            
+                                            
                                         }
-                                        Image("rectangletTag").padding(.top,-66)
-                                        
-                                        Text(p.name).padding(.top,-66).padding(.leading,5).foregroundColor(.white).bold()
-                                        Text(p.rate).padding(.top,-60).padding(.leading,5).foregroundColor(.white)
-                                        Image(systemName:"star.fill").padding(.top,-73).padding(.leading,35).foregroundColor(.yellow)
-                                        
-                                        
-                                        
-                                        Button {
-                                            isSelected.toggle()
-                                            if(isSelected == true){
-                                                vm.updatebktrue(fruit: p)
-                                                
-                                            }else{vm.updatebkfalse(fruit: p)}
-                                        } label: {
-                                            if(p.bk == bkk){
-                                                Image(systemName:"bookmark")
-                                            }else{
-                                                Image(systemName:"bookmark.fill")
-                                                
-                                            }
-                                            
-                                        }.font(.system(size: 30)).foregroundColor(Color("secondaryColor")).padding(.top,-330).padding(.leading,320)
-                                        
-                                        
-                                     
-
-                                    }
-                                    
-                                }
+                                   }
                                 }.padding(.top,40)
                                 
                                 
                                 
-                            }//end of zstack
+                            }
                             
                         }
                     }
@@ -214,7 +202,6 @@ struct WijhaPage: View {
                     
                 }
                 .searchable(text: $searchText, prompt: "What is new in Riyadh")
-                //background
                 .background(Color("background1"))
                 .navigationBarItems(trailing:
                                         Button(action: {
@@ -240,6 +227,6 @@ struct WijhaPage: View {
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         WijhaPage()
-        // .environment(\.locale, Locale(identifier: "en"))
     }
 }
+

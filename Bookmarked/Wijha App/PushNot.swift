@@ -21,7 +21,7 @@ class PushNotifciationViewModel: ObservableObject {
                     notifications.title = "New Places!!!! 🤩"
                     notifications.alertBody = "Come check Wijha and see the new places we added"
                     notifications.soundName = "default"
-                    notifications.shouldBadge = true
+                    notifications.shouldBadge = false
                     sub.notificationInfo = notifications
                 
                     CKContainer(identifier:"iCloud.MC2").publicCloudDatabase.save(sub) { returnedSubscription, returnedError in

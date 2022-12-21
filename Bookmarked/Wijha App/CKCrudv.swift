@@ -47,10 +47,11 @@ class CKViewModel: ObservableObject{
                     let rate = record["itemSubText"] as? String ?? "N/A"
                     let cat = record["category"] as? String ?? "N/A"
                     let bk = record["bookmark"] as? Int64 ?? 2
-
+                    let detail = record["details"] as? String ?? "N/A"
+                    let trend = record["trend"] as? Int64 ?? 2
                     
                     print(record)
-                    returnedItems.append(phhotos(name: name, record: record,imageURL: imageURL, rate: rate, cat : cat,bk: bk))
+                    returnedItems.append(phhotos(name: name, record: record,imageURL: imageURL, rate: rate, cat : cat,bk: bk,detail: detail,trend: trend))
                 case .failure (let error):
                     print("Error recordMatchedBlock: \(error)")
                 }
@@ -70,13 +71,13 @@ class CKViewModel: ObservableObject{
         CKContainer(identifier:"iCloud.MC2").publicCloudDatabase.add(operation)
     }
 
-    func updatebkfalse(fruit: phhotos) {
-        let record = fruit.record
+    func updatebkfalse(placef: phhotos) {
+        let record = placef.record
         record ["bookmark"] = 0
         saveItem(record: record)
         }
-    func updatebktrue(fruit: phhotos) {
-        let record = fruit.record
+    func updatebktrue(placef: phhotos) {
+        let record = placef.record
         record ["bookmark"] = 1
         saveItem(record: record)
         }
@@ -95,72 +96,6 @@ class CKViewModel: ObservableObject{
   
 }
 
-//struct CKCrud: View {
-//
-//    @StateObject private var vm = CKViewModel()
-//
-//    var body: some View {
-//        NavigationView{
-//            VStack{
-//                //header
-//                //textField
-//                //button
-//                List{
-//                    ForEach(vm.place, id: \.self) { h in
-//
-//
-//
-//                        HStack {
-//                        Text(h.cat)
-//                        Text(h.name)
-//                        Text(h.rate)
-//                        Image(systemName: "star")
-//
-//                        if let url = h.imageURL, let data = try? Data (contentsOf: url),
-//                        let image = UIImage(data: data) {
-//                        Image (uiImage: image)
-//                        .resizable()
-//                        .frame(width: 50, height: 50)
-//
-//
-//                        }
-//
-//                        }   .onTapGesture {
-//                                vm.updatebkfalse(fruit: h)
-//                            }
-//
-//                    } .onDelete (perform: vm.deleteItemCKViewModel)
-//                }.listStyle(PlainListStyle())
-//            }.padding()
-//                .navigationBarHidden(true)
-//
-//        }
-//
-//    }
-//
-//}
-//
-//
-//struct CKCrud_Previews: PreviewProvider {
-//    static var previews: some View {CKCrud()}
-//}//Preview
-
-//extension CKCrud {
-//
-//    private var header: some View {
-//        Text("CloudKit CRUD")
-//            .font(.headline)
-//            .underline()
-//    }
-//
-//    private var textField : some View{
-//        TextField("Add somthign here...", text: $vm.text)
-//            .frame(height: 55)
-//            .padding(.leading)
-//            .background(Color.gray.opacity(0.4))
-//            .cornerRadius(10)
-//    }
-//}
 
 struct phhotos: Hashable{
     let name: String
@@ -169,6 +104,8 @@ struct phhotos: Hashable{
     let rate : String
     let cat : String
     let bk:Int64
+    let detail : String
+    let trend : Int64
     
 }
 

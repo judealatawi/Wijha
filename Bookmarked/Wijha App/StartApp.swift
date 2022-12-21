@@ -5,12 +5,7 @@ import SwiftUI
 struct StartApp: App {
     var body: some Scene {
         WindowGroup {
-            //CloudKitUser()
-            
-            OnBording()
-            //HomePage()
-
-            //ContentView()
+            SplashScreenView()
         }
     }
 }
