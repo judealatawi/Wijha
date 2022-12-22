@@ -27,28 +27,34 @@ struct Home: View{
 
 
 struct WalkthroughScreen: View{
+    @StateObject private var vmuser = CloudKitUserViewModel()
     @StateObject private var vm = PushNotifciationViewModel()
     @AppStorage("currentPage") var currentPage = 1
     var body: some View{
         ZStack{
             
             if currentPage == 1 {
-                ScreenView(image: "Onboard1", title: "Welcome", detail: "Let's take you to your  next favorite place", bgColor: Color("primaryColor 1"))
+                ScreenView(image: "Onboard1", title: "Welcome", detail: "Let’s take you to your next favorite place.", bgColor: Color("primary color-onboarding"))
                     .transition(.scale)
             }
             
             if currentPage == 2 {
-                ScreenView(image: "Onboard2", title: "Welcome", detail: "Let's take you to your  next favorite place", bgColor: Color("secondaryColor"))
+                ScreenView(image: "Onboard2", title: "Search", detail: "With our variety of categories you can easily find what your looking for.", bgColor: Color("secondaryColor"))
                     .transition(.scale)
             }
             
             if currentPage == 3 {
-                ScreenView(image: "Onboard3", title: "Welcome", detail: "Let's take you to your  next favorite place", bgColor: Color("thirdColor"))
+                ScreenView(image: "Onboard3", title: "Enjoy", detail: "And don’t forgot to share with your loved ones.", bgColor: Color("thirdColor-onboarding"))
                     .transition(.scale)
                 
             }
             
-        }.onAppear{vm.PermissionsReq()}
+        }.onAppear{
+            vmuser.requstPremisstion()
+            vmuser.fitchiCloudUserRecored()
+            vm.PermissionsReq()
+            
+        }
         
             .overlay(
                 

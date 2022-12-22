@@ -19,10 +19,10 @@
 		1EC5F2CA294A36EF00CC7AB0 /* OnBording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5F2C9294A36EF00CC7AB0 /* OnBording.swift */; };
 		E9A890FE2952EA0B00F3D086 /* catagoryInd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A890FD2952EA0B00F3D086 /* catagoryInd.swift */; };
 		E9A891002952F24A00F3D086 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A890FF2952F24A00F3D086 /* Splash.swift */; };
-		E9A891032953049C00F3D086 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9A891012953049C00F3D086 /* Localizable.strings */; };
 		E9AEEF67294A688600D0C369 /* CKCrudv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AEEF66294A688600D0C369 /* CKCrudv.swift */; };
 		E9AEEF6B294CA02F00D0C369 /* PushNot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AEEF6A294CA02F00D0C369 /* PushNot.swift */; };
 		E9BEFA342951D26400FDF49D /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEFA332951D26400FDF49D /* PlaceDetails.swift */; };
+		E9FA19AD2954627000A85B17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9FA19AB2954627000A85B17 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +58,10 @@
 		1EC5F2C9294A36EF00CC7AB0 /* OnBording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBording.swift; sourceTree = "<group>"; };
 		E9A890FD2952EA0B00F3D086 /* catagoryInd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catagoryInd.swift; sourceTree = "<group>"; };
 		E9A890FF2952F24A00F3D086 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
-		E9A891022953049C00F3D086 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = "../../../../Dropbox (Developer Academy)/Wijha copy/ar.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E9AEEF66294A688600D0C369 /* CKCrudv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKCrudv.swift; sourceTree = "<group>"; };
 		E9AEEF6A294CA02F00D0C369 /* PushNot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNot.swift; sourceTree = "<group>"; };
 		E9BEFA332951D26400FDF49D /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
+		E9FA19AC2954627000A85B17 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = "../../../../Dropbox (Developer Academy)/Wijha copy/ar.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E9FF4888294A57A3009C556A /* Bookmarked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bookmarked.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +159,7 @@
 				E9AEEF6A294CA02F00D0C369 /* PushNot.swift */,
 				E9AEEF66294A688600D0C369 /* CKCrudv.swift */,
 				E9BEFA332951D26400FDF49D /* PlaceDetails.swift */,
-				E9A891012953049C00F3D086 /* Localizable.strings */,
+				E9FA19AB2954627000A85B17 /* Localizable.strings */,
 			);
 			path = "Wijha App";
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E8E22532940C17500C2330A /* Preview Assets.xcassets in Resources */,
-				E9A891032953049C00F3D086 /* Localizable.strings in Resources */,
+				E9FA19AD2954627000A85B17 /* Localizable.strings in Resources */,
 				1E8E22502940C17500C2330A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,10 +342,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E9A891012953049C00F3D086 /* Localizable.strings */ = {
+		E9FA19AB2954627000A85B17 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E9A891022953049C00F3D086 /* ar */,
+				E9FA19AC2954627000A85B17 /* ar */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -476,16 +476,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bookmarked/Bookmarked.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Bookmarked/Preview Content\"";
 				DEVELOPMENT_TEAM = CLBBAVL4JN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Wijha;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -506,16 +508,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Bookmarked/Bookmarked.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Bookmarked/Preview Content\"";
 				DEVELOPMENT_TEAM = CLBBAVL4JN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Wijha;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,10 +540,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CLBBAVL4JN;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nouf.BookmarkedTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jude.wijha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -555,10 +560,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CLBBAVL4JN;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nouf.BookmarkedTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jude.wijha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -573,9 +579,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CLBBAVL4JN;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nouf.BookmarkedUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jude.wijha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -590,9 +597,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CLBBAVL4JN;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Nouf.BookmarkedUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jude.wijha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

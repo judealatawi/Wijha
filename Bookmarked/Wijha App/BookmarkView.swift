@@ -33,12 +33,12 @@ struct BookmarkView: View {
                         
                     }.padding(.top,-170)
                     VStack{
-                        Text("Bookmarked")
+                        Text(LocalizedStringKey( "Bookmarked"))
                         
                             .font(.custom("", fixedSize: 16))
                             .fontWeight(. heavy)
                             .padding(.vertical,0)
-                        Text("Here you can find your saved places")
+                        Text(LocalizedStringKey("Here you can find your saved places"))
                             .font(.custom("", fixedSize: 14))
                             .fontWeight(.medium)
                     }.padding(.top,-10)
@@ -124,6 +124,7 @@ struct BookmarkView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         BookmarkView()
+        
     }
 }
 

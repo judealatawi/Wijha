@@ -3,14 +3,14 @@ import SwiftUI
 
 
 struct category: View {
-    let photos = [ photo(categoryphotos: "entertainmentPlaces",catg: "Entertaiment",catgoryDescription: "Here you can find Entertament places"),
-                   photo(categoryphotos: "vegan friendly",catg: "Vigan Friendly",catgoryDescription: "Here you can find Vigan Frindly Places"),
-                   photo(categoryphotos: "budget friendly",catg: "Budget Friendly",catgoryDescription: "Here you can find Budget Frindly Places"),
-                   photo(categoryphotos: "memorable",catg: "Memrable Places",catgoryDescription: "Here you can find Fun Places for making memories"),
-                   photo(categoryphotos: "24Hour",catg: "24H",catgoryDescription: "Here you can find Places that are open 24H"),
-                   photo(categoryphotos: "studyCafe",catg: "Study Places",catgoryDescription: "Here you can find Quite Studing Places"),
-                   photo(categoryphotos: "familyplaces",catg: "Childrn And Family ",catgoryDescription: "Here you can find Childern Frindly Places"),
-                   photo(categoryphotos: "NewPlaces",catg: "New Places",catgoryDescription: "Here you can find New Places in Riyadh")
+    let photos = [ photo(categoryphotos: "entertainmentPlaces",catg: "Entertaiment",catgoryDescription: "Have fun with your loved ones and go out to those places "),
+                   photo(categoryphotos: "vegan friendly",catg: "Vegan Friendly",catgoryDescription: "Where you can find a places with a variety of vegan options"),
+                   photo(categoryphotos: "budget friendly",catg: "Budget Friendly",catgoryDescription: "These places are friendly for people with small amount of budget"),
+                   photo(categoryphotos: "memorable",catg: "Memrable Places",catgoryDescription: "Where you can party and have fun with your family & friends"),
+                   photo(categoryphotos: "24Hour",catg: "24H",catgoryDescription: "You can go out late and these places are welcoming you"),
+                   photo(categoryphotos: "studyCafe",catg: "Study Places",catgoryDescription: "Where you can get focused more with your work"),
+                   photo(categoryphotos: "familyplaces",catg: "Childrn And Family ",catgoryDescription: "These places are suitable for big families and kids"),
+                   photo(categoryphotos: "NewPlaces",catg: "New Places",catgoryDescription: "Isn’t it a good feeling to go to a new place?")
     ]
     
     var body: some View {
@@ -21,7 +21,7 @@ struct category: View {
 
                 Image("header")
                     .resizable()
-                    .frame(width: 400, height: 170)
+                    .frame(height: 170)
                     .padding(.top,-180)
                 
                 ZStack{
@@ -55,6 +55,7 @@ struct category: View {
     struct category_Previews: PreviewProvider {
         static var previews: some View {
             category()
+                .environment(\.locale, Locale(identifier: "en"))
         }
     }
 }

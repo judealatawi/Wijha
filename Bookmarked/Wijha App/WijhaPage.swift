@@ -12,13 +12,14 @@ struct WijhaPage: View {
     @StateObject private var vm = CKViewModel()
     @State private var  bkk: Int64 = 0
     @State private var  trend: Int64 = 1
-    
+    @State var catgory = category()
     
     init() {
         vm.fetchItemsCKViewModel()
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .systemBackground
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
         UISearchBar.appearance().tintColor = UIColor.white
+        
     }
     
     
@@ -31,7 +32,7 @@ struct WijhaPage: View {
                         
                         Image("header")
                             .resizable()
-                            .frame(width: 400, height: 170)
+                            .frame(height: 170)
                             .ignoresSafeArea()
                             .padding([.top],-150)
                         
@@ -56,7 +57,7 @@ struct WijhaPage: View {
                                             .fontWeight(.medium)
                                     }
                                     
-                                    Image(systemName: "chevron.backward")                                   .foregroundColor(.orange)
+                                    Image(systemName: "chevron.backward")                                   .foregroundColor(Color("secondaryColor"))
                                         .rotationEffect(.degrees(180))
                                     
                                 }
@@ -65,12 +66,15 @@ struct WijhaPage: View {
                             ScrollView(.horizontal){
                                 
                                 HStack{
-                                    Image("v2")
-                                    Image("u8")
-                                    Image("t8")
-                                    Image("ms0")
-                                    Image("cj")
-                                    
+                                    ForEach(catgory.photos){ sub in
+                                        VStack(alignment: .leading){
+                                            NavigationLink(destination: catagoryInd(img: sub.categoryphotos,catgory: sub.catg, catDescription: sub.catgoryDescription)){
+                                                Image(sub.categoryphotos)
+                                                    .resizable().frame(width: 80,height: 80)//.padding(.top,-40)
+                                            }
+                                        }
+                                        
+                                    }
                                     
                                     
                                 }.padding(.horizontal)
@@ -110,15 +114,17 @@ struct WijhaPage: View {
                                                                     .frame(width: 80, height: 100)
                                                                     .padding(.top,-40)
                                                                     .frame(width: 96, height: 153)
-                                                                    .background()
+                                                                    .background(Color("cards"))
                                                                     .cornerRadius(8)
+                                                                    
                                                                 
                                                             }
                                                         }
+                                                        
                                                         Text(LocalizedStringKey(sub.name))
                                                             .font(.custom("", fixedSize: 12))
                                                             .fontWeight(.medium)
-                                                            .padding(.top,-50)
+                                                            .padding(.top,-50).padding(.leading,5)
                                                         
                                                         Text(sub.rate)
                                                             .font(.custom("", fixedSize: 12))
@@ -134,12 +140,14 @@ struct WijhaPage: View {
                                                         
                                                     }
                                                 }
+                                                    
                                             }
                                         }.padding(.leading)
-                                    }
-                                }
+
+                                    }                                }
                                 
                             }
+                            //.bac
                             
                             Divider()
                             
@@ -190,7 +198,7 @@ struct WijhaPage: View {
                                             
                                         }
                                    }
-                                }.padding(.top,40)
+                                }.padding()
                                 
                                 
                                 
@@ -227,6 +235,7 @@ struct WijhaPage: View {
 struct HomePage_Previews: PreviewProvider {
     static var previews: some View {
         WijhaPage()
+            .environment(\.locale, Locale(identifier: "ar"))
     }
 }
 

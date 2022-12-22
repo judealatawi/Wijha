@@ -7,7 +7,7 @@ struct tagsContainer: Identifiable{
     var tagColor: String
 }
 let tagsticker = [
-    tagsContainer(tagName:"vagan", tagSymbol:"leaf.fill", tagColor:"greencolor"),
+    tagsContainer(tagName:"vegan", tagSymbol:"leaf.fill", tagColor:"greencolor"),
     tagsContainer(tagName:"24H", tagSymbol:"clock.fill", tagColor:"maincolorfont"),
     tagsContainer(tagName:"Children", tagSymbol:"figure.2.and.child.holdinghands", tagColor:"orangecolor"),
     tagsContainer(tagName:"Study", tagSymbol:"books.vertical.fill", tagColor:"marooncolor"),
@@ -26,7 +26,7 @@ struct PlaceDeatil: View {
     @State var isSelected = false
     @StateObject private var vm = CKViewModel()
     
-    @State private var  vigan : String = "Vigan Friendly"
+    @State private var  vigan : String = "Vegan Friendly"
     @State private var  study : String = "Study Places"
     @State private var  enter : String = "Entertaiment"
     @State private var  budget : String = "Budget Friendly"
@@ -54,24 +54,24 @@ struct PlaceDeatil: View {
                         
                         
                         ZStack{
-                            RoundedRectangle(cornerRadius: 40).fill(Color("background1").gradient).frame(width: 390,height: 600).padding(.top,-50)
+                            RoundedRectangle(cornerRadius: 40).fill(Color("background1").gradient).frame(height: 600).padding(.top,-50)
                             HStack{
                                 
                                 
                                 VStack{
-                                    Text(p.name)
+                                    Text(LocalizedStringKey( p.name))
                                         .font(.title3)
                                         .fontWeight(.bold)
                                         .foregroundColor(Color("maincolorfont"))
-                                        .padding(.trailing)
-                                        .padding(.vertical,1.0)
-                                    Text(p.detail)
+                                        //.padding(.trailing)
+                                        //.padding(.vertical,1.0)
+                                    Text(LocalizedStringKey( p.detail))
                                         .font(.callout)
                                         .foregroundColor(Color("caption"))
                                     
                                     
                                     
-                                }.padding(.top,-40)
+                                }.padding(.top,-40).frame(maxWidth: .infinity, alignment: .center)
                                 
                                 Spacer()
                                 VStack{
@@ -87,7 +87,7 @@ struct PlaceDeatil: View {
                                     HStack{
                                         
                                         if(p.bk == bkk){
-                                            Image(systemName:"bookmark")                                    .foregroundColor(Color("secondaryColor"))
+                                            Image(systemName:"bookmark").foregroundColor(Color("secondaryColor"))
                                             
                                         }else{
                                             Image(systemName:"bookmark.fill")                                    .foregroundColor(Color("secondaryColor"))

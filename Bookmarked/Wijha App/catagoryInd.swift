@@ -9,11 +9,6 @@ import SwiftUI
 
 let cnavBarAppearance = UINavigationBar.appearance()
 
-
-
-
-
-
 struct catagoryInd: View {
     
     @State private var  bkk: Int64 = 1
@@ -24,7 +19,6 @@ struct catagoryInd: View {
     let img : String
     let catgory : String
     let catDescription : String
-    
     
     var body: some View {
         
@@ -53,9 +47,8 @@ struct catagoryInd: View {
                     
                     VStack{
                         Text(catgory)
-                        
-                            .font(.custom("", fixedSize: 16))
-                            .fontWeight(. heavy)
+                            .font(.custom("", fixedSize: 20))
+                            .fontWeight(.bold)
                             .padding(.vertical,0)
                         Text(catDescription)
                             .font(.custom("", fixedSize: 14))
@@ -68,11 +61,15 @@ struct catagoryInd: View {
                             ForEach(vm.place,id:\.self) { p in
                                 if(p.cat == catgory){
                                     ZStack{
-                                        if let url = p.imageURL, let data = try? Data (contentsOf: url),
-                                           let image = UIImage(data: data) {
-                                            Image (uiImage: image)
-                                                .resizable()
-                                            .frame(width: 358.51, height: 290)}
+                                        NavigationLink(destination: PlaceDeatil(p: p)){
+                                            if let url = p.imageURL, let data = try? Data (contentsOf: url),
+                                               let image = UIImage(data: data) {
+                                                Image (uiImage: image)
+                                                    .resizable()
+                                                    .frame(width: 358.51, height: 290)
+                                                    .cornerRadius(10)
+                                            }
+                                        }
                                         
                                         ZStack(alignment: .leading){
                                             Image("rectangletTag")
@@ -118,7 +115,14 @@ struct catagoryInd: View {
                                     
                                 }
                                 
+                                
                             }
+                                
+                                Text("More Coming Soon 👀").font(.custom("", fixedSize: 14))
+                                .fontWeight(.medium).foregroundColor(.gray)
+                            
+                        
+                            
                         }.padding(.top,40)
                         
                     }

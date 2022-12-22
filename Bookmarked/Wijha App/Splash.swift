@@ -39,7 +39,7 @@ struct SplashScreenView: View {
                         
                         
                         
-                    }.frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("thirdColor")).opacity(done ? 0: 1)
+                    }.frame(maxWidth: .infinity, maxHeight: .infinity).background(Color("thirdColor-o  nboarding")).opacity(done ? 0: 1)
                 }//.navigationBarHidden(done ? false: true)
                 
                 .onAppear{
