@@ -1,2 +1,1 @@
 # WIJHA
-# Wijha-data
